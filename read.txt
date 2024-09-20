@@ -1,0 +1,9 @@
+what are the next steps:
+-commit changes of dev scenario api and send link to karl
+-make sure location is working 
+-implement the edit button by making edit page
+-add navbar 
+-make sure everything is responsive 
+-add sidebar 
+-add footer 
+-add welcome page 
