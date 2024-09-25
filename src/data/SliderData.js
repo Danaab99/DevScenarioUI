@@ -1,6 +1,6 @@
-import ImageOne from '../images/laptop 2.jpg'
-import ImageTwo from '../images/new laptop.jpg'
-import ImageThree from '../images/yes.jpg'
+import ImageOne from '../images/imageOne.jpg'
+import ImageTwo from '../images/imageTwo.jpg'
+import ImageThree from '../images/imageThree.jpg'
 export const SliderData = [
     {
         title: "Create a new application, in a couple of clicks",
