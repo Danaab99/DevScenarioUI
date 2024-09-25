@@ -8,14 +8,25 @@ const StyledSearchbar = styled.input`
   font-size: 16px;
   border-radius: 8px;
   border: none;
-  background-color: #f3f4f6; /* Light background to match the table */
+  background-color: ${({ theme }) => theme.searchbarBackgroundColor}; /* Light background to match the table */
   font-family: 'Montserrat', sans-serif;
-  color: #111827; /* Dark text color */
+  color: ${({ theme }) => theme.footerBackground}; /* Dark text color */
   transition: all 0.3s ease;
 
   &:focus {
     outline: none;
     background-color: #e5e7eb; /* Slightly darker background on focus */
+  }
+
+  /* Make the search bar responsive */
+  @media (max-width: 768px) {
+    max-width: 100%; /* Take up full width on smaller screens */
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px 15px; /* Adjust padding for very small screens */
+    font-size: 12px; /* Further adjust font size for mobile screens */
   }
 `;
 

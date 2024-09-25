@@ -5,21 +5,23 @@ import { BrowserRouter as Router, Route, Routes, useLocation, useNavigate } from
 import { AnimatePresence, motion } from "framer-motion";
 import LandingPage from "./pages/LandingPage";
 import Footer from "./components/Footer";
-import AppsPage from './pages/AppsPage';
-import NewApplication from "./components/NewApplication";
-import InquiriesPage from './pages/InquiriesPage';
-import StatusLevelsPage from './pages/StatusLevelsPage';
-import ApplicationsEdit from './components/ApplicationEdit';
-import ViewApplication from "./components/ViewApplication";
-import ViewInquiry from "./components/ViewInquiry";
-import EditInquiry from "./components/EditInquiry";
-import NewInquiry from "./components/NewInquiry";
-import NewStatusLevel from "./components/NewStatusLevel";
-import EditStatusLevel from "./components/EditStatusLevel";
-import ViewStatusLevel from "./components/ViewStatusLevel";
+import AppsPage from './pages/applications/AppsPage';
+import NewApplication from "./pages/applications/NewApplication";
+import InquiriesPage from './pages/inquiries/InquiriesPage';
+import StatusLevelsPage from './pages/statusLevel/StatusLevelsPage';
+import ApplicationsEdit from './pages/applications/ApplicationEdit';
+import ViewApplication from "./pages/applications/ViewApplication";
+import ViewInquiry from "./pages/inquiries/ViewInquiry";
+import EditInquiry from "./pages/inquiries/EditInquiry";
+import NewInquiry from "./pages/inquiries/NewInquiry";
+import NewStatusLevel from "./pages/statusLevel/NewStatusLevel";
+import EditStatusLevel from "./pages/statusLevel/EditStatusLevel";
+import ViewStatusLevel from "./pages/statusLevel/ViewStatusLevel";
 import { animateScroll as scroll } from "react-scroll";
 import Dashboard from "./components/Dashboard";
-import { ThemeProvider } from "./ThemeProvider";
+import { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme } from './Theme';
+import Button from "./components/Button";
 
 const pageTransition = {
   initial: { opacity: 0, x: 100 },
@@ -29,6 +31,8 @@ const pageTransition = {
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false); // Track if dark mode is enabled
+
   const [scrollTarget, setScrollTarget] = useState(null); // Track the scroll target
   const location = useLocation();
   const navigate = useNavigate();
@@ -37,6 +41,11 @@ function App() {
   const toggle = () => {
     setIsOpen(!isOpen);
   };
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode); // Switch between dark and light mode
+  };
+
 
   // Scroll to the target after page load/transition
   useEffect(() => {
@@ -75,9 +84,10 @@ function App() {
 
   return (
     <>
-  
-      <Navbar toggle={toggle} handleNavigation={handleNavigation} /> {/* Pass handleNavigation */}
+       <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+       <Navbar toggleTheme={toggleTheme} isDarkMode={isDarkMode} toggle={toggle}/> {/* Pass handleNavigation */}
       <Dropdown isOpen={isOpen} toggle={toggle} /> {/* Pass state and toggle to Dropdown */}
+    
 
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
@@ -104,6 +114,7 @@ function App() {
                 variants={pageTransition}
               >
                 <LandingPage />
+                
               </motion.div>
             }
           />
@@ -134,7 +145,7 @@ function App() {
             }
           />
           <Route
-            path="/edit/:id"
+            path="/edit/applications/:id"
             element={
               <motion.div
                 initial="initial"
@@ -199,7 +210,7 @@ function App() {
             }
           />
           <Route
-            path="/edit-inquiry/:id"
+            path="/edit/inquiries/:id"
             element={
               <motion.div
                 initial="initial"
@@ -225,7 +236,7 @@ function App() {
             }
           />
           <Route
-            path="/new-status-level"
+            path="/create-status-level"
             element={
               <motion.div
                 initial="initial"
@@ -238,7 +249,7 @@ function App() {
             }
           />
           <Route
-            path="/edit-status-level/:id"
+            path="/edit/status-levels/:id"
             element={
               <motion.div
                 initial="initial"
@@ -251,7 +262,7 @@ function App() {
             }
           />
           <Route
-            path="/view-status-levels/:id"
+            path="/status-levels/:id"
             element={
               <motion.div
                 initial="initial"
@@ -267,6 +278,7 @@ function App() {
       </AnimatePresence>
 
       <Footer />
+      </ThemeProvider>
     
     </>
   );

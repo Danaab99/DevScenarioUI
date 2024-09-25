@@ -8,7 +8,7 @@ const Group = styled.div`
 
 const Label = styled.label`
   font-size: 1rem;
-  color: black;
+  color: ${({ theme }) => theme.textColor};
   display: block;
   margin-bottom: 8px;
 `;
@@ -18,8 +18,8 @@ const Input = styled.input`
   padding: 10px;
   border-radius: 8px;
   border: none;
-  background-color: #374151;
-  color: white;
+  background-color: ${({ theme }) => theme.labelTextColor};
+  color: ${({theme}) => theme.genericTableCardBackground};
   font-size: 1rem;
   margin-bottom: 5px;
   &:focus {

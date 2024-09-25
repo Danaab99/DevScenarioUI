@@ -1,36 +1,38 @@
 import React from 'react';
 import styled from 'styled-components';
-import SectionWrapper from '../hoc/SectionWrapper';
 
 const FooterContainer = styled.footer`
-  background: #000;
-  color: #fff;
+  background: ${({ theme }) => theme.footerBackground}; 
+  color: ${({ theme }) => theme.footerTextColor}; 
   padding: 20px 0;
   text-align: center;
+  width: 100%;  // Ensure the footer spans the full width
+  position: relative;
+  bottom: 0;
 `;
 
+const FooterText = styled.p`
+  color: ${({ theme }) => theme.footerSecondaryTextColor}; 
+  margin-top: 2px;
+  transition: color 0.3s ease;
+`;
 
 const Footer = () => {
   return (
-    <FooterContainer id="contact" className="bg-black text-white py-5 px-5">
-      <div className="container mx-auto text-center">
-        <p className="text-sm">
-          © 2024 IBKS Development Scenario. All rights reserved.
-        </p>
-        <p className="text-sm text-gray-400 mt-2">
-          Designed with care by Dana Abdo.
-
-        </p>
-        <p className="text-sm text-gray-400 mt-2">
-           Contact: +961 76 805 324 
-        </p>
-        <p className="text-sm text-gray-400 mt-2"> Or </p>
-        <p className="text-sm text-gray-400 mt-2"> Email: danaabdo2000@icloud.com</p>
-      </div>
+    <FooterContainer id="contact">
+      <p className="text-sm">
+        © 2024 IBKS Development Scenario. All rights reserved.
+      </p>
+      <FooterText>
+        Designed with care by Dana Abdo.
+      </FooterText>
+      <FooterText>
+        Contact: +961 76 805 324
+      </FooterText>
+      <FooterText>Or</FooterText>
+      <FooterText>Email: danaabdo2000@icloud.com</FooterText>
     </FooterContainer>
   );
 };
 
-
-
-export default SectionWrapper(Footer, "footer");
+export default Footer;
