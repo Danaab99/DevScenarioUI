@@ -22,7 +22,7 @@ export const deleteInquiry = (id) => axios.delete(`${API_URL_1}/${id}`);
 
 export const getStatusLevels = () => axios.get(API_URL_2);
 
-export const deleteStatusLevel = (id) => axios.delete(`${API_URL_2}/statuslevel/${id}`);
+export const deleteStatusLevel = (id) => axios.delete(`${API_URL_2}/${id}`);
 export const createStatusLevel = (newStatusLevel) => axios.post(`${API_URL_2}`, newStatusLevel);
 
 export const getStatusLevelById = (id) => axios.get(`${API_URL_2}/${id}`);

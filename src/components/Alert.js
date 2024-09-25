@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/Alert.css';
+
 
 const Alert = ({ message, type, onClose, onSave, onLeave, showOptions }) => {
   return (
