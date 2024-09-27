@@ -70,6 +70,7 @@ const EntityDetailsView = ({ title, viewConfig, fetchData, navigateBack }) => {
   const [data, setData] = useState(null);
   const [alertMessage, setAlertMessage] = useState('');
   const [alertType, setAlertType] = useState('');
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -77,6 +78,7 @@ const EntityDetailsView = ({ title, viewConfig, fetchData, navigateBack }) => {
       try {
         const response = await fetchData(id);
         setData(response.data);
+        
       } catch (error) {
         setAlertMessage('Error fetching data.');
         setAlertType('danger');
@@ -103,6 +105,10 @@ const EntityDetailsView = ({ title, viewConfig, fetchData, navigateBack }) => {
         )}
 
         <FieldContainer>
+        <Field>
+          <span>ID</span>
+          <p>{data.id || 'N/A'}</p>
+        </Field>
           {viewConfig.map((field) => (
             <Field key={field.name}>
               <span>{field.label}</span>

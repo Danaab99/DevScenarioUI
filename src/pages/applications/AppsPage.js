@@ -16,6 +16,8 @@ const AppsPage = () => {
           <h3>{app.projectName}</h3>
           <p>Location: {app.projectLocation}</p>
           <p>Status: {app.appStatus}</p>
+          
+          
         </>
       )}
     />

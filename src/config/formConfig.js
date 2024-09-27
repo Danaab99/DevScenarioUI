@@ -1,5 +1,6 @@
 // Config for Application Form
 export const applicationFormConfig = [
+  
     { label: 'App Status', name: 'appStatus', type: 'text', placeholder: 'Enter app status', required: true },
     { label: 'Project Reference', name: 'projectRef', type: 'text', placeholder: 'Enter project reference', required: true },
     { label: 'Project Name', name: 'projectName', type: 'text', placeholder: 'Enter project name', required: true },
@@ -10,6 +11,7 @@ export const applicationFormConfig = [
     { label: 'Project Value', name: 'projectValue', type: 'number', placeholder: 'Enter project value', required: false },
     { label: 'Status ID', name: 'statusId', type: 'number', placeholder: 'Enter status ID', required: true },
     { label: 'Notes', name: 'notes', isTextArea: true, placeholder: 'Enter notes', required: false },
+    
   ];
   
   // Config for Status Level Form
@@ -26,5 +28,6 @@ export const applicationFormConfig = [
     { label: 'Response', name: 'response', isTextArea: true, placeholder: 'Enter response', required: false },
     { label: 'Asked Date', name: 'askedDt', type: 'date', placeholder: '', required: false },
     { label: 'Completed Date', name: 'completedDt', type: 'date', placeholder: '', required: false },
+    { label: 'Application ID', name: 'applicationId', type: 'number', placeholder: 'Enter application ID', required: true },
   ];
   

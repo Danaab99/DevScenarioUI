@@ -6,7 +6,7 @@ import Button from './Button';
 // Styled Components
 const CreateContainer = styled.div`
   background: ${({ theme }) => theme.backgroundGradient};  // Assuming you have a gradient in your theme
-  color: ${({ theme }) => theme.textColor};
+  
   min-height: 100vh;
   transition: all 0.3s ease;
   padding: 50px 20px;
@@ -32,6 +32,7 @@ const Form = styled.form`
 const Input = styled.input`
   width: 100%;
   padding: 12px 15px;
+  color: 'black';
   border: 2px solid ${({ theme }) => theme.inputBorderColor};
   border-radius: 10px;
   font-size: 16px;
@@ -44,6 +45,7 @@ const Input = styled.input`
 const TextArea = styled.textarea`
   width: 100%;
   padding: 12px 15px;
+  color: 'black';
   border: 2px solid ${({ theme }) => theme.inputBorderColor};
   border-radius: 10px;
   font-size: 16px;
@@ -70,7 +72,7 @@ const Label = styled.label`
   display: block;
   font-weight: 600;
   margin-bottom: 10px; // Increase for clarity
-  color: ${({ theme }) => theme.labelColor};
+  color: ${({ theme }) => theme.textColor};
 `;
 
 // Using styled-components for buttons could allow for more precise styling
@@ -79,6 +81,12 @@ const StyledButton = styled(Button)`
   width: 100%;
   padding: 10px 0;
   font-size: 18px; // Larger text for better readability
+`;
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-between; // This will place one button on each end of the container
+  width: 100%; // Ensure the container spans the full width of its parent
+  margin-top: 20px; // Add some top margin for spacing from the form elements
 `;
 
 // Function components
@@ -165,8 +173,10 @@ const EntityCreationForm = ({ title, formData, handleSubmit, handleChange, isFor
             required={field.required}
           />
         ))}
+       <ButtonContainer>
         <StyledButton type="submit" disabled={!isFormValid}>Submit</StyledButton>
-        <StyledButton onClick={handleBackClick} style={{ marginTop: '20px' }}>Go Back</StyledButton>
+        <StyledButton onClick={handleBackClick}>Go Back</StyledButton>
+      </ButtonContainer>
       </Form>
       
     </CreateContainer>

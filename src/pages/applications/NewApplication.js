@@ -16,6 +16,7 @@ function NewApplication() {
     projectValue: '',
     statusId: '',
     notes: '',
+    
   });
   const [initialFormValues] = useState({ ...formValues }); // Save initial form values
   const navigate = useNavigate();

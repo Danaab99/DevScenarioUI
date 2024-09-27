@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import { Button } from './Button';
 import { IoMdArrowRoundForward } from 'react-icons/io'; // Import the arrow
 
 const HeroSection = styled.section`
@@ -129,16 +128,7 @@ function Hero({ slides }) {
               <HeroImage src={slide.image} alt={slide.title} />
               <HeroContent>
                 <h1>{slide.title}</h1>
-                <Button
-                  to={slide.path}
-                  primary="true"
-                  css={`
-                    max-width: 160px;
-                  `}
-                >
-                  {slide.label}
-                  <Arrow /> {/* Add the arrow next to the button text */}
-                </Button>
+                
               </HeroContent>
             </HeroSlider>
           </HeroSlide>

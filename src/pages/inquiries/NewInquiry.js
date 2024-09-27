@@ -13,6 +13,7 @@ function NewInquiry() {
     response: '',
     askedDt: '',
     completedDt: '',
+    applicationId: '',
   });
   const [initialFormValues] = useState({ ...formValues }); // Save initial form values
   const navigate = useNavigate();

@@ -52,13 +52,13 @@ const Message = styled.p`
   font-family: 'Montserrat', sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
-  color:  ${({ theme }) => theme.textColor};
+  color:  'black';
   background-color:  ${({ theme }) => theme.backgroundColor};
   padding: 10px;
   border-radius: 8px;
   text-align: center;
   margin-top: 20px;
-  border: 1px solid #ff6b6b;
+  border: 1px solid black;
 
   @media (max-width: 768px) {
     font-size: 1rem; /* Adjust font size on small screens */
@@ -160,6 +160,7 @@ const DataPage = ({
       Swal.fire('Error!', 'There was an issue deleting the item.', 'error');
     }
   };
+  
 
   // Handle search filtering based on query
   useEffect(() => {

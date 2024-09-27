@@ -10,7 +10,7 @@ const StyledSearchbar = styled.input`
   border: none;
   background-color: ${({ theme }) => theme.searchbarBackgroundColor}; /* Light background to match the table */
   font-family: 'Montserrat', sans-serif;
-  color: ${({ theme }) => theme.footerBackground}; /* Dark text color */
+  color: 'black';/* Dark text color */
   transition: all 0.3s ease;
 
   &:focus {
